@@ -1,0 +1,37 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.InputMismatchException;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        LocalDate currentDate = LocalDate.now();
+        System.out.print("Enter your birthdate in the format 'yy/mm/dd': ");
+        String inputDate = scanner.nextLine();
+        String[] dateParts = inputDate.split("/");
+        if (dateParts.length == 3) {
+           
+            try {
+                int year = Integer.parseInt("20" + dateParts[0]);
+                int month = Integer.parseInt(dateParts[1]);
+                int day = Integer.parseInt(dateParts[2]);
+                LocalDate birthDate = LocalDate.of(year, month, day);
+                Period age = Period.between(birthDate, currentDate);
+                int years = age.getYears();
+                int months = age.getMonths();
+                int days = age.getDays();
+
+                System.out.println("Your age is " + years + " years, " + months + " months, and " + days + " days.");
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please use the 'yy/mm/dd' format.");
+            }
+            
+        
+        } else {
+            System.out.println("Invalid input. Please use the 'yy/mm/dd' format.");
+        }
+
+        scanner.close();
+    }
+}
