@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class bnkint {
+    public static void main(String[]intr){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the amount:");
+        double amount=sc.nextDouble();
+        System.out.print("Enter the interest rate: ");
+        double rate=sc.nextDouble();
+        System.out.print("Enter the no.of yrs: ");
+        int yrs=sc.nextInt();
+        System.out.println();
+
+        double interest=(amount*rate*yrs)/100;
+        double totalamt=amount+interest;
+
+        System.out.println("Interest amount: "+interest+"$");
+        System.out.println("Total amount: "+totalamt+"$");
+        sc.close();
+    }
+}
